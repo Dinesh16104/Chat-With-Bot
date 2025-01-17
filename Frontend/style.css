@@ -1,0 +1,239 @@
+/* General Styles */
+body {
+    font-family: 'Cinzel', sans-serif;  /* Changed font to Cinzel */
+    background: linear-gradient(to bottom, #f0f4ff, #dbe7ff, #c7daff);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+    font-size: 14px;
+  }
+  
+  /* Chat Container */
+  .chat-container {
+    width: 100%;
+    max-width: 600px;
+    height: 90vh;
+    background: white;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.4s ease-in-out;
+    animation: bounceIn 1s ease-out;  /* Bounce animation */
+  }
+  
+  /* Bounce animation for the chat container */
+  @keyframes bounceIn {
+    0% {
+      transform: scale(0.5);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  /* Header */
+  .chat-header {
+    background: linear-gradient(45deg, #4a90e2, #0a7fedef, #4a90e2);
+    padding: 10px;
+    text-align: center;
+    color: white;
+    font-size: 1.5em;  /* Reduced size */
+    font-family: 'Cinzel', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    position: relative;
+    animation: fadeInHeader 2s ease-in-out;  /* Smooth fade-in animation */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  }
+  
+  /* Fade-in effect for header */
+  @keyframes fadeInHeader {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Text shadow effect for header */
+  .chat-header {
+    text-shadow: 0 2px 10px rgb(255, 255, 255), 0 0 15px rgba(72, 140, 255, 0.8);
+  }
+  
+  /* Chat Box */
+  .chat-box {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    transition: opacity 0.3s ease-in-out;
+    animation: fadeInUp 1s ease-in-out;  /* Fade-in-up animation */
+  }
+  
+  /* Fade-in-up animation for chatbox */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Message Styles */
+  .chat-box .bot-message {
+    align-self: flex-start;
+    background: #e3f2fd;
+    color: #333;
+    padding: 8px 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    max-width: 75%;
+    font-size: 0.9em;
+    animation: slideInLeft 0.5s ease-in-out, fadeInMessage 1s ease-in-out;  /* Added fade-in effect to bot message */
+  }
+  
+  /* Fade-in effect for bot message */
+  @keyframes fadeInMessage {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .chat-box .user-message {
+    align-self: flex-end;
+    background: #bbdefb;
+    color: #333;
+    padding: 8px 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    max-width: 75%;
+    font-size: 0.9em;
+    animation: slideInRight 0.5s ease-in-out, fadeInMessage 1s ease-in-out;  /* Added fade-in effect to user message */
+  }
+  
+  /* Slide-in Animations */
+  @keyframes slideInLeft {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideInRight {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  
+  /* Input Area */
+  .input-container {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #ddd;
+    padding: 10px;
+    animation: slideUp 0.5s ease-in-out;  /* Slide up effect for input area */
+  }
+  
+  /* Slide-up animation for input area */
+  @keyframes slideUp {
+    from {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  #user-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  #user-input:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 15px rgba(72, 140, 255, 0.4);  /* Smooth glowing effect on focus */
+  }
+  
+  /* Send Button */
+  #send-btn {
+    margin-left: 8px;
+    padding: 12px;
+    background: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.1em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulse 1.5s infinite;  /* Added pulse animation */
+  }
+  
+  /* Pulse animation for the button */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      background-color: #4a90e2;
+    }
+    50% {
+      transform: scale(1.1);
+      background-color: #357ab7;
+    }
+    100% {
+      transform: scale(1);
+      background-color: #4a90e2;
+    }
+  }
+  
+  #send-btn:hover {
+    background: #357ab7;
+    transform: scale(1.05);
+  }
+  
+  #send-btn:active {
+    transform: scale(0.95);
+  }
+  
+  /* Send Button Icon */
+  #send-btn i {
+    font-size: 1.3em;
+    transition: transform 0.3s ease;
+  }
+  
+  #send-btn:hover i {
+    transform: rotate(45deg);  /* Icon rotation effect */
+  }
